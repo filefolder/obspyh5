@@ -54,6 +54,8 @@ _NOT_SERIALIZABLE = '<not serializable>'
 
 
 def _is_utc(utc):
+    if not isinstance(utc, (str, bytes, UTC)):
+        return False
     utc = str(utc)
     return len(utc) == 27 and utc.endswith('Z')
 
